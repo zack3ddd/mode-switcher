@@ -1,3 +1,5 @@
+<img width="1640" height="924" alt="Online Store Launch with Device Mockup Facebook Cover" src="https://github.com/user-attachments/assets/7ed194af-2049-40e2-96c6-e4bb9b4aa02a" />
+
 # Mode Switcher（Blender 模式快速切換）
 
 按 **TAB** 叫出「模式切換餅選單」，滑鼠往方向一撥就切換模式。物件模式還能一鍵直通點／線／面編輯。
