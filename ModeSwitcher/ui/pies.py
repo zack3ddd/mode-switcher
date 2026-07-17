@@ -28,6 +28,7 @@ Development assisted by AI (Trae AI)
 import bpy
 from bpy.types import Menu
 from ..utils.icons import get_icon
+from ..i18n import _t, I18N_CTX
 
 class PieModes(Menu):
     bl_idname = "MODESWITCHER_MT_modes_pie"
@@ -49,7 +50,7 @@ class PieModes(Menu):
             pie.separator()  # LEFT
             pie.separator()  # RIGHT
             pie.separator()  # BOTTOM
-            pie.operator("object.mode_set", text="物體模式", icon='OBJECT_DATAMODE').mode = 'OBJECT'  # TOP
+            pie.operator("object.mode_set", text=_t("Object Mode"), text_ctxt=I18N_CTX, icon='OBJECT_DATAMODE').mode = 'OBJECT'  # TOP
             pie.separator()  # TOP_LEFT
             pie.separator()  # TOP_RIGHT
             pie.separator()  # BOTTOM_RIGHT
@@ -61,7 +62,7 @@ class PieModes(Menu):
             pie.separator()  # LEFT
             pie.separator()  # RIGHT
             pie.separator()  # BOTTOM
-            pie.operator("object.mode_set", text="物體模式", icon='OBJECT_DATAMODE').mode = 'OBJECT'  # TOP
+            pie.operator("object.mode_set", text=_t("Object Mode"), text_ctxt=I18N_CTX, icon='OBJECT_DATAMODE').mode = 'OBJECT'  # TOP
             pie.separator()  # TOP_LEFT
             pie.separator()  # TOP_RIGHT
             pie.separator()  # BOTTOM_RIGHT
@@ -73,7 +74,7 @@ class PieModes(Menu):
             pie.separator()  # LEFT
             pie.separator()  # RIGHT
             pie.separator()  # BOTTOM
-            pie.operator("object.mode_set", text="物體模式", icon='OBJECT_DATAMODE').mode = 'OBJECT'  # TOP
+            pie.operator("object.mode_set", text=_t("Object Mode"), text_ctxt=I18N_CTX, icon='OBJECT_DATAMODE').mode = 'OBJECT'  # TOP
             pie.separator()  # TOP_LEFT
             pie.separator()  # TOP_RIGHT
             pie.separator()  # BOTTOM_RIGHT
@@ -85,7 +86,7 @@ class PieModes(Menu):
             pie.separator()  # LEFT
             pie.separator()  # RIGHT
             pie.separator()  # BOTTOM
-            pie.operator("object.mode_set", text="物體模式", icon='OBJECT_DATAMODE').mode = 'OBJECT'  # TOP
+            pie.operator("object.mode_set", text=_t("Object Mode"), text_ctxt=I18N_CTX, icon='OBJECT_DATAMODE').mode = 'OBJECT'  # TOP
             pie.separator()  # TOP_LEFT
             pie.separator()  # TOP_RIGHT
             pie.separator()  # BOTTOM_RIGHT
@@ -96,20 +97,20 @@ class PieModes(Menu):
         if active.type == 'MESH':
             # LEFT (左) - Vertex
             depress = context.mode == 'EDIT_MESH' and context.tool_settings.mesh_select_mode[0]
-            pie.operator("modeswitcher.mesh_mode", text="頂點", depress=depress, icon='VERTEXSEL').mode = 'VERT'
+            pie.operator("modeswitcher.mesh_mode", text=_t("Vertex"), text_ctxt=I18N_CTX, depress=depress, icon='VERTEXSEL').mode = 'VERT'
 
             # RIGHT (右) - Face
             depress = context.mode == 'EDIT_MESH' and context.tool_settings.mesh_select_mode[2]
-            pie.operator("modeswitcher.mesh_mode", text="面", depress=depress, icon='FACESEL').mode = 'FACE'
+            pie.operator("modeswitcher.mesh_mode", text=_t("Face"), text_ctxt=I18N_CTX, depress=depress, icon='FACESEL').mode = 'FACE'
 
             # BOTTOM (下) - Edge
             depress = context.mode == 'EDIT_MESH' and context.tool_settings.mesh_select_mode[1]
-            pie.operator("modeswitcher.mesh_mode", text="邊", depress=depress, icon='EDGESEL').mode = 'EDGE'
+            pie.operator("modeswitcher.mesh_mode", text=_t("Edge"), text_ctxt=I18N_CTX, depress=depress, icon='EDGESEL').mode = 'EDGE'
 
             # TOP (上) - Edit Mode
-            text = "物體模式" if context.mode == "EDIT_MESH" else "編輯模式"
+            text = _t("Object Mode") if context.mode == "EDIT_MESH" else _t("Edit Mode")
             icon = 'OBJECT_DATAMODE' if context.mode == "EDIT_MESH" else 'EDITMODE_HLT'
-            pie.operator("modeswitcher.edit_mode", text=text, icon=icon)
+            pie.operator("modeswitcher.edit_mode", text=text, text_ctxt=I18N_CTX, icon=icon)
 
             # TOP_LEFT (左上) - Mode Buttons
             row = pie.row()
@@ -137,9 +138,9 @@ class PieModes(Menu):
 
             # LEFT (左)
             if context.mode == "OBJECT":
-                pie.operator("object.mode_set", text="編輯模式", icon='EDITMODE_HLT').mode = 'EDIT'
+                pie.operator("object.mode_set", text=_t("Edit Mode"), text_ctxt=I18N_CTX, icon='EDITMODE_HLT').mode = 'EDIT'
             else:
-                pie.operator("object.mode_set", text="物體模式", icon='OBJECT_DATAMODE').mode = 'OBJECT'
+                pie.operator("object.mode_set", text=_t("Object Mode"), text_ctxt=I18N_CTX, icon='OBJECT_DATAMODE').mode = 'OBJECT'
 
             # 其他位置保持空白
             pie.separator()  # TOP_LEFT (左上)
@@ -153,22 +154,22 @@ class PieModes(Menu):
 
             # 2 - BOTTOM
             if context.mode == 'OBJECT':
-                pie.operator("object.mode_set", text="姿態模式", icon='POSE_HLT').mode = 'POSE'
+                pie.operator("object.mode_set", text=_t("Pose Mode"), text_ctxt=I18N_CTX, icon='POSE_HLT').mode = 'POSE'
             elif context.mode == 'EDIT_ARMATURE':
-                pie.operator("object.mode_set", text="姿態模式", icon='POSE_HLT').mode = 'POSE'
+                pie.operator("object.mode_set", text=_t("Pose Mode"), text_ctxt=I18N_CTX, icon='POSE_HLT').mode = 'POSE'
             else:  # POSE mode
-                pie.operator("object.mode_set", text="編輯模式", icon='EDITMODE_HLT').mode = 'EDIT'      
+                pie.operator("object.mode_set", text=_t("Edit Mode"), text_ctxt=I18N_CTX, icon='EDITMODE_HLT').mode = 'EDIT'      
 
             # 3 - BOTTOM_RIGHT
             pie.separator()
 
             # 4 - TOP
             if context.mode == 'OBJECT':
-                pie.operator("object.mode_set", text="編輯模式", icon='EDITMODE_HLT').mode = 'EDIT'
+                pie.operator("object.mode_set", text=_t("Edit Mode"), text_ctxt=I18N_CTX, icon='EDITMODE_HLT').mode = 'EDIT'
             elif context.mode == 'EDIT_ARMATURE':
-                pie.operator("object.mode_set", text="物體模式", icon='OBJECT_DATAMODE').mode = 'OBJECT'
+                pie.operator("object.mode_set", text=_t("Object Mode"), text_ctxt=I18N_CTX, icon='OBJECT_DATAMODE').mode = 'OBJECT'
             else:  # POSE mode
-                pie.operator("object.mode_set", text="物體模式", icon='OBJECT_DATAMODE').mode = 'OBJECT'
+                pie.operator("object.mode_set", text=_t("Object Mode"), text_ctxt=I18N_CTX, icon='OBJECT_DATAMODE').mode = 'OBJECT'
 
             # 5 - TOP_RIGHT
             pie.separator()
@@ -184,22 +185,22 @@ class PieModes(Menu):
 
         elif active.type == 'GREASEPENCIL':
             # LEFT (左) - Vertex Paint
-            pie.operator("object.mode_set", text="頂點繪製", icon='VPAINT_HLT').mode = 'VERTEX_GREASE_PENCIL'
+            pie.operator("object.mode_set", text=_t("Vertex Paint"), text_ctxt=I18N_CTX, icon='VPAINT_HLT').mode = 'VERTEX_GREASE_PENCIL'
 
             # RIGHT (右) - Edit Mode
-            pie.operator("object.mode_set", text="編輯模式", icon='EDITMODE_HLT').mode = 'EDIT'
+            pie.operator("object.mode_set", text=_t("Edit Mode"), text_ctxt=I18N_CTX, icon='EDITMODE_HLT').mode = 'EDIT'
 
             # BOTTOM (下) - Draw Mode
-            pie.operator("object.mode_set", text="繪製模式", icon='GREASEPENCIL').mode = 'PAINT_GREASE_PENCIL'
+            pie.operator("object.mode_set", text=_t("Draw Mode"), text_ctxt=I18N_CTX, icon='GREASEPENCIL').mode = 'PAINT_GREASE_PENCIL'
 
             # TOP (上) - Object Mode
-            pie.operator("object.mode_set", text="物體模式", icon='OBJECT_DATAMODE').mode = 'OBJECT'
+            pie.operator("object.mode_set", text=_t("Object Mode"), text_ctxt=I18N_CTX, icon='OBJECT_DATAMODE').mode = 'OBJECT'
 
             # TOP_LEFT (左上) - Sculpt Mode
-            pie.operator("object.mode_set", text="雕刻模式", icon='SCULPTMODE_HLT').mode = 'SCULPT_GREASE_PENCIL'
+            pie.operator("object.mode_set", text=_t("Sculpt Mode"), text_ctxt=I18N_CTX, icon='SCULPTMODE_HLT').mode = 'SCULPT_GREASE_PENCIL'
 
             # TOP_RIGHT (右上) - Weight Paint
-            pie.operator("object.mode_set", text="權重繪製", icon='WPAINT_HLT').mode = 'WEIGHT_GREASE_PENCIL'
+            pie.operator("object.mode_set", text=_t("Weight Paint"), text_ctxt=I18N_CTX, icon='WPAINT_HLT').mode = 'WEIGHT_GREASE_PENCIL'
 
             # 其他位置保持空白
             pie.separator()  # BOTTOM_LEFT (左下)
@@ -217,7 +218,7 @@ class PieSculptMode(Menu):
         pie.separator()  # RIGHT
         pie.separator()  # BOTTOM
         # 4 - TOP - Object Mode
-        pie.operator("object.mode_set", text="物體模式", icon='OBJECT_DATAMODE').mode = 'OBJECT'
+        pie.operator("object.mode_set", text=_t("Object Mode"), text_ctxt=I18N_CTX, icon='OBJECT_DATAMODE').mode = 'OBJECT'
         pie.separator()  # TOP_LEFT
         pie.separator()  # TOP_RIGHT
         pie.separator()  # BOTTOM_RIGHT
@@ -235,7 +236,7 @@ class PieTexturePaintMode(Menu):
         pie.separator()  # RIGHT
         pie.separator()  # BOTTOM
         # 4 - TOP - Object Mode
-        pie.operator("object.mode_set", text="物體模式", icon='OBJECT_DATAMODE').mode = 'OBJECT'
+        pie.operator("object.mode_set", text=_t("Object Mode"), text_ctxt=I18N_CTX, icon='OBJECT_DATAMODE').mode = 'OBJECT'
         pie.separator()  # TOP_LEFT
         pie.separator()  # TOP_RIGHT
         pie.separator()  # BOTTOM_RIGHT
@@ -253,7 +254,7 @@ class PieWeightPaintMode(Menu):
         pie.separator()  # RIGHT
         pie.separator()  # BOTTOM
         # 4 - TOP - Object Mode
-        pie.operator("object.mode_set", text="物體模式", icon='OBJECT_DATAMODE').mode = 'OBJECT'
+        pie.operator("object.mode_set", text=_t("Object Mode"), text_ctxt=I18N_CTX, icon='OBJECT_DATAMODE').mode = 'OBJECT'
         pie.separator()  # TOP_LEFT
         pie.separator()  # TOP_RIGHT
         pie.separator()  # BOTTOM_RIGHT
@@ -273,7 +274,7 @@ class PieVertexPaintMode(Menu):
         pie.separator()  # LEFT (左)
         pie.separator()  # RIGHT (右)
         pie.separator()  # BOTTOM (下)
-        pie.operator("object.mode_set", text="物體模式", icon='OBJECT_DATAMODE').mode = 'OBJECT'  # TOP (上)
+        pie.operator("object.mode_set", text=_t("Object Mode"), text_ctxt=I18N_CTX, icon='OBJECT_DATAMODE').mode = 'OBJECT'  # TOP (上)
         pie.separator()  # TOP_LEFT (左上)
         pie.separator()  # TOP_RIGHT (右上)
         pie.separator()  # BOTTOM_LEFT (左下)
