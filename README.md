@@ -1,5 +1,43 @@
 <img width="1640" height="924" alt="Online Store Launch with Device Mockup Facebook Cover" src="https://github.com/user-attachments/assets/7ed194af-2049-40e2-96c6-e4bb9b4aa02a" />
 
+# Mode Switcher
+
+**English** · [繁體中文](#繁體中文)
+
+Press **TAB** to bring up a "mode switch" pie menu, then flick the mouse in a direction to switch modes. From Object Mode you can also jump straight into vertex / edge / face editing.
+
+> Concept inspired by MACHIN3tools. Made by Zack3D (with AI assistance).
+
+## Features
+
+- **TAB pie menu for switching modes:** Object / Edit / Sculpt / the various paint modes / Pose / Grease Pencil all switch quickly
+- **Straight to vertex / edge / face from Object Mode:** no need to enter Edit Mode first and then press 1 / 2 / 3
+- Covers meshes, curves, armatures, grease pencil and other object types
+
+## Installation
+
+1. Download `ModeSwitcher.zip` from **Releases**
+2. Blender → Edit > Preferences > Add-ons > Install from Disk → select the zip → enable
+3. Press **TAB** in the 3D viewport to use it
+
+## Note
+
+- This add-on rebinds **TAB** to open the mode pie menu (replacing Blender's default TAB mode toggle). To restore the original TAB, just disable the add-on.
+
+## Compatibility
+
+- Blender 4.3+ / 5.2 LTS
+
+## Credits & License
+
+Concept inspired by [MACHIN3tools](https://github.com/machin3io/MACHIN3tools). Author: Zack3D. Released under the GNU GPL.
+
+---
+
+## 繁體中文
+
+[English ↑](#mode-switcher)
+
 # Mode Switcher（Blender 模式快速切換）
 
 按 **TAB** 叫出「模式切換餅選單」，滑鼠往方向一撥就切換模式。物件模式還能一鍵直通點／線／面編輯。
