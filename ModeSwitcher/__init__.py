@@ -1,16 +1,17 @@
 bl_info = {
     "name": "Mode Switcher",
     "author": "Zack3D (Referenced from MACHIN3tools, AI assisted)",
-    "version": (1, 0, 0),
+    "version": (1, 1, 0),
     "blender": (4, 3, 0),
-    "location": "3D 視窗（餅選單快速鍵）",
-    "description": "在 3D 視窗用餅選單快速切換編輯模式；物件模式可一鍵直通點／線／面。",
+    "location": "3D Viewport (pie menu shortcut)",
+    "description": "Quickly switch edit modes with a pie menu in the 3D viewport; from Object Mode jump straight to vertex / edge / face",
     "category": "3D View",
     "doc_url": "",
     "tracker_url": ""
 }
 
 import bpy
+from . i18n import translations_dict
 from . operators.mode import EditMode, MeshMode
 from . ui.pies import PieModes, PieSculptMode, PieTexturePaintMode, PieWeightPaintMode, PieVertexPaintMode
 from .utils.icons import register_icons, unregister_icons
@@ -28,6 +29,7 @@ classes = (
 addon_keymaps = []
 
 def register():
+    bpy.app.translations.register(__name__, translations_dict)
     register_icons()
     for cls in classes:
         bpy.utils.register_class(cls)
@@ -174,6 +176,11 @@ def unregister():
 
     for cls in reversed(classes):
         bpy.utils.unregister_class(cls)
+
+    try:
+        bpy.app.translations.unregister(__name__)
+    except Exception:
+        pass
 
 if __name__ == "__main__":
     register()
