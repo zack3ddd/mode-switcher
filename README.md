@@ -50,13 +50,18 @@ Concept inspired by [MACHIN3tools](https://github.com/machin3io/MACHIN3tools). A
 - **物件模式直通點／線／面**：不必先進編輯模式再按 1／2／3
 - 涵蓋網格、曲線、骨架、蠟筆等各種物件類型
 
+## 教學
+[![YouTube 影片](https://img.youtube.com/vi/FWyOiVh_aXQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=FWyOiVh_aXQ)
+
+## 注意
+
 ## 安裝
 
 1. 下載 Releases 的 `ModeSwitcher.zip`
 2. Blender → 編輯 > 偏好設定 > 附加元件 > 從磁碟安裝 → 選 zip → 啟用
 3. 在 3D 視窗按 **TAB** 使用
 
-## 注意
+
 
 - 這個外掛把 **TAB** 改成叫出模式餅選單（取代 Blender 預設的 TAB 模式切換）。若想恢復原本的 TAB，停用外掛即可。
 
