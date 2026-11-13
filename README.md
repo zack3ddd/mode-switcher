@@ -26,7 +26,7 @@ Press **TAB** to bring up a "mode switch" pie menu, then flick the mouse in a di
 
 ## Compatibility
 
-- Blender 4.3+ / 5.2 LTS
+- Blender 4.3+ / 5.2 LTS / 5.3
 
 ## Credits & License
 
@@ -67,7 +67,7 @@ Concept inspired by [MACHIN3tools](https://github.com/machin3io/MACHIN3tools). A
 
 ## 版本
 
-- 對應 Blender 4.3 以上／5.2 LTS
+- 對應 Blender 4.3 以上／5.2 LTS／5.3
 
 ## 致謝與授權
 
